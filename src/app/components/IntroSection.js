@@ -37,7 +37,7 @@ export default function Highlights({ children }) {
       <div>
         <input
           type="text"
-          className="border-none bg-transparent px-2 font-semibold"
+          className="border-none bg-transparent px-2 font-semibold w-full"
           placeholder="Your name here"
         />
         <input

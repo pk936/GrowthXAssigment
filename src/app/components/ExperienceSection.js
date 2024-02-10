@@ -37,7 +37,7 @@ export default function ExperienceSection({ id, data }) {
 
 function ExpCard({ title, link, desc }) {
   return (
-    <div className="flex flex-col gap-5 bg-white border-[1px] border-solid border-[#DADADA] p-4 rounded-3xl">
+    <div className="shadow-lg flex flex-col gap-5 bg-white border-[1px] border-solid border-[#DADADA] p-4 rounded-3xl">
       <div className="flex items-center gap-5 ">
         <div>
           <DefaultImage />
@@ -57,16 +57,16 @@ function ExpCard({ title, link, desc }) {
       </div>
 
       <div className="flex gap-10">
-          <input
-            type="text"
-            placeholder="+ Add location"
-            className="text-sm  font-medium  "
-          />
-          <input
-            type="text"
-            placeholder="+ Add location"
-            className="text-sm font-medium  "
-          />
+        <input
+          type="text"
+          placeholder="+ Add location"
+          className="text-sm  font-medium  "
+        />
+        <input
+          type="text"
+          placeholder="+ Add timeline"
+          className="text-sm font-medium  "
+        />
       </div>
 
       <div>
@@ -82,7 +82,7 @@ function ExpCard({ title, link, desc }) {
 
 function AddCard({ onAddCard }) {
   const commonClasses =
-    "border-[1px] border-solid border-[#DADADA] p-4 rounded-3xl";
+    "border-[1px] border-solid border-[#DADADA] p-4 rounded-xl";
 
   return (
     <button

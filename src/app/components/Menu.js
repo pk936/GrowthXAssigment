@@ -2,26 +2,25 @@ import { useContext, useState } from "react";
 import { AppContext } from "../AppContext";
 import SubmitButton from "./SubmitButton";
 import MenuCard from "./MenuCard";
+import { sectionsList } from "../constants";
 
 export default function Menu({ label }) {
   const [showMenu, setShowMenu] = useState(false);
-  const { sectionsList } = useContext(AppContext);
-  const list = [];
-
-  const object = sectionsList.data;
-
-  for (const key in object) {
-    if (Object.hasOwnProperty.call(object, key) && !object[key]?.isEditing) {
-      const element = object[key];
-      list.push(
-        <li className="w-full text-start hover:bg-[#EFEFEF] rounded-md">
-          <a href={`#${key}`} className="block p-2  text-sm">
-            {key}
+  const { sectionsList: addedSection, onAddSection } = useContext(AppContext);
+  const menuItems = sectionsList
+    .filter((s) => addedSection.data[s.id])
+    .map(({ label, id }) => {
+      return (
+        <li
+          key={id}
+          className="w-full text-start hover:bg-[#EFEFEF] rounded-md"
+        >
+          <a href={`#${id}`} className="block p-2  text-sm">
+            {label}
           </a>
         </li>
       );
-    }
-  }
+    });
 
   function toggleMenu() {
     setShowMenu(!showMenu);
@@ -41,7 +40,11 @@ export default function Menu({ label }) {
       </button>
       {showMenu && (
         <div className="flex flex-col  justify-center font-semibold bg-white py-5 px-2 absolute top-12 w-60 rounded-xl text-black">
-          {list.length > 0 ? <ul className="">{list}</ul> : <EmptyMenu />}
+          {menuItems.length > 0 ? (
+            <ul className="">{menuItems}</ul>
+          ) : (
+            <EmptyMenu />
+          )}
         </div>
       )}
     </div>

@@ -34,8 +34,8 @@ function Layout() {
           {aboutYou && <AboutMeSection id="aboutYou" data={aboutYou} />}
           {skillSet && <SkillSection id="skillSet" data={skillSet} />}
           {projects && <ProjectSection id="projects" data={projects} />}
-          {exp && <ExperienceSection id="projects" data={exp} />}
-          {cta && <ProjectSection id="projects" data={cta} />}
+          {exp && <ExperienceSection id="exp" data={exp} />}
+          {cta && <ProjectSection id="cta" data={cta} />}
 
           {!sectionsList.isAnySectionEditing && <AddSectionButton />}
         </IntroSection>

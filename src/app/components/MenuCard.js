@@ -3,20 +3,25 @@ import { AppContext } from "../AppContext";
 import { useContext } from "react";
 
 export default function MenuCard() {
-  const { onAddSection } = useContext(AppContext);
+  const { sectionsList: addedSection, onAddSection } = useContext(AppContext);
 
-  const menuItems = sectionsList.map(({ label, id }) => {
-    return (
-      <li key={id} className="w-full text-start hover:bg-[#EFEFEF] rounded-md">
-        <button
-          className=" p-2 font-bold text-sm flex items-center gap-2"
-          onClick={() => onAddSection(id, { isEditing: true })}
+  const menuItems = sectionsList
+    .filter((s) => !addedSection.data[s.id])
+    .map(({ label, id }) => {
+      return (
+        <li
+          key={id}
+          className="w-full text-start hover:bg-[#EFEFEF] rounded-md"
         >
-          <AddIcon /> Add {label}
-        </button>
-      </li>
-    );
-  });
+          <button
+            className=" p-2 font-bold text-sm flex items-center gap-2"
+            onClick={() => onAddSection(id, { isEditing: true })}
+          >
+            <AddIcon /> Add {label}
+          </button>
+        </li>
+      );
+    });
 
   return (
     <div

@@ -17,7 +17,7 @@ export default function SectionWrapper({ id, data, children }) {
   }
 
   return (
-    <div className="flex flex-col gap-4">
+    <div id={id} className="flex flex-col gap-4">
       {isEditing && (
         <div className="flex flex-row-reverse gap-4 text-xs">
           <SubmitButton label="Save" onClick={onSave} />
