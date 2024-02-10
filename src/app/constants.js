@@ -1,7 +1,7 @@
 export const sectionsList = [
-  { label: "About You", link: "" },
-  { label: "Sillsets", link: "" },
-  { label: "Projects", link: "" },
-  { label: "Experience", link: "" },
-  { label: "CTA", link: "" },
+  { label: "About You", link: "", id: "aboutYou" },
+  { label: "Skillsets", link: "", id: "skillSet" },
+  { label: "Projects", link: "", id: "projects" },
+  { label: "Experience", link: "", id: "exp" },
+  { label: "CTA", link: "", id: "cta" },
 ];

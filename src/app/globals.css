@@ -11,6 +11,15 @@ input:focus {
   outline: none;
 }
 
+div[contenteditable="true"] {
+  outline: none;
+}
+
+input,
+textarea {
+  background-color: transparent;
+}
+
 @layer utilities {
   /* .text-balance {
     text-wrap: balance;

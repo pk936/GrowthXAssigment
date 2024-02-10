@@ -2,7 +2,7 @@
 import Image from "next/image";
 import vector from "@/app/images/Vector.png";
 import Menu from "./Menu";
-import { sectionsList } from "../constants";
+import SubmitButton from "./SubmitButton";
 
 export default function NavBar(params) {
   //   const menuItems = sectionsList.map(({ label, href }, i) => {
@@ -27,9 +27,7 @@ export default function NavBar(params) {
       </div>
       <div className="flex gap-5 justify-self-end items-center">
         <button>Preview</button>
-        <button className="px-4 py-2 bg-[#0085FF] inline-block rounded-full">
-          Publish
-        </button>
+        <SubmitButton label="Publish" />
       </div>
     </nav>
   );
