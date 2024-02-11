@@ -61,7 +61,7 @@ function AddCard({ onAddCard }) {
     <button
       onClick={onAddCard}
       className={
-        " w-[45%] h-56 flex flex-col items-center justify-center bg-[#EEEEEE] text-sm font-bold" +
+        " md:w-[45%] w-full h-56 flex md:flex-col items-center justify-center bg-[#EEEEEE] text-sm font-bold" +
         commonClasses
       }
     >
@@ -79,16 +79,16 @@ function ProjectLink() {
       <input
         type="text"
         placeholder="Enter project link"
-        className="text-sm font-medium"
+        className="text-sm text-[#999999] font-medium"
       />
     );
 
   return (
-      <button
-        onClick={() => setAddLink(true)}
-        className="self-start text-sm text-[#0085FF] font-medium "
-      >
-        Add link
-      </button>
+    <button
+      onClick={() => setAddLink(true)}
+      className="self-start text-sm text-[#0085FF] font-medium "
+    >
+      Add link
+    </button>
   );
 }

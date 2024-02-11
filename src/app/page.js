@@ -11,6 +11,7 @@ import SkillSection from "./components/SkillSection";
 import Avatar from "./components/Avatar";
 import ProjectSection from "./components/ProjectSection";
 import ExperienceSection from "./components/ExperienceSection";
+import Editor from "./components/lexicalEditor/Editor";
 
 export default function App() {
   return (
@@ -28,7 +29,7 @@ function Layout() {
   return (
     <>
       <NavBar />
-      <main className="flex min-h-screen flex-col gap-32 justify-between p-24">
+      <main className="flex min-h-screen flex-col md:gap-32 gap-16 justify-between md:p-24 p-4">
         <Title />
         <IntroSection>
           {aboutYou && <AboutMeSection id="aboutYou" data={aboutYou} />}

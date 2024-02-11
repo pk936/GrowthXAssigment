@@ -21,12 +21,13 @@ export default function Highlights({ children }) {
   //   }
 
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
       <Avatar />
-      <div className="col-span-2 overflow-hidden flex flex-col justify-center">
-        <input
+      <div className="md:col-span-2 overflow-hidden flex flex-col justify-center">
+        <textarea
+          rows={2}
           type="text"
-          className="border-none bg-transparent text-7xl"
+          className="border-none bg-transparent md:text-7xl text-4xl"
           placeholder="Click to add title"
           // onBlur={(e) => onBlur("title", e)}
           // value={title}
@@ -47,7 +48,7 @@ export default function Highlights({ children }) {
         />
       </div>
 
-      <div className="col-span-2 flex flex-col gap-10">{children}</div>
+      <div className="md:col-span-2 flex flex-col gap-10">{children}</div>
     </div>
   );
 

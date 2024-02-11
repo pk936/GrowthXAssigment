@@ -16,6 +16,8 @@ export default function SectionWrapper({ id, data, children }) {
     onAddSection(id, undefined);
   }
 
+  const disable = isEditing ? "pointer-events-auto" : "pointer-events-none";
+
   return (
     <div id={id} className="flex flex-col gap-4">
       {isEditing && (
@@ -25,7 +27,11 @@ export default function SectionWrapper({ id, data, children }) {
         </div>
       )}
 
-      <div className="border-[1px] border-solid border-[#828282] rounded-lg p-8">
+      <div
+        className={
+          disable + " border-[1px] border-solid border-[#828282] rounded-lg p-8"
+        }
+      >
         {children}
       </div>
     </div>

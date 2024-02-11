@@ -4,7 +4,7 @@ import SectionWrapper from "./SectionWrapper";
 export default function SkillSets({ id, data }) {
   return (
     <SectionWrapper id={id} data={data}>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
         <LeftSection />
         <RightSection />
       </div>
@@ -14,7 +14,7 @@ export default function SkillSets({ id, data }) {
 
 function LeftSection() {
   return (
-    <div className="w-[359px] h-[535px] flex flex-col border-[1px] border-solid border-[#DADADA] bg-white p-4 rounded-lg">
+    <div className="md:w-[359px] md:h-[535px] w-full flex flex-col border-[1px] border-solid border-[#DADADA] bg-white p-4 rounded-lg">
       <h3 className="font-bold text-xl mb-4">Skills</h3>
       <textarea
         type="text"
@@ -34,13 +34,13 @@ function RightSection() {
   }
 
   const commonClasses =
-    "border-[1px] border-solid border-[#DADADA] p-4 rounded-lg w-[359px] h-[535px]";
+    "border-[1px] border-solid border-[#DADADA] p-4 rounded-lg md:w-[359px] md:h-[535px] w-full";
 
   const placeholder = (
     <button
       onClick={onAddCard}
       className={
-        "flex flex-col items-center justify-center bg-[#EEEEEE] text-sm font-bold" +
+        "flex flex-col  items-center justify-center bg-[#EEEEEE] text-sm font-bold" +
         commonClasses
       }
     >

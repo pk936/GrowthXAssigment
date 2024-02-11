@@ -16,7 +16,7 @@ export default function NavBar(params) {
   //   });
 
   return (
-    <nav className="bg-[#232323] h-14 flex items-center px-4  text-white text-xs  gap-40">
+    <nav className="hidden md:flex bg-[#232323] h-14 items-center px-4  text-white text-xs  gap-40">
       <div className="flex items-center gap-3">
         <Image src={vector} width={30} height={13} />
         <label className="text-sm">Site Builder</label>
