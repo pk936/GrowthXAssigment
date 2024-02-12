@@ -46,7 +46,7 @@ export default function Menu({ label }) {
       {showMenu && (
         <div
           ref={menuRef}
-          className="flex flex-col  justify-center font-semibold bg-white py-5 px-2 absolute top-12 w-60 rounded-xl text-black"
+          className="z-10 flex flex-col  justify-center font-semibold bg-white py-5 px-2 absolute top-12 w-60 rounded-xl text-black"
         >
           {menuItems.length > 0 ? (
             <ul className="">{menuItems}</ul>

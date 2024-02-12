@@ -17,7 +17,7 @@ export default function SectionWrapper({ id, data, children }) {
   }
 
   const disable = isEditing
-    ? "pointer-events-auto border-[1px] p-8"
+    ? "pointer-events-auto border-[1px] md:p-8 p-4"
     : "pointer-events-none border-none";
 
   if (isPreview && isEditing) {

@@ -39,7 +39,9 @@ export default function NavBar(params) {
       </div>
       <div className="flex gap-20 flex-1">
         <Menu label="Sections" />
-        <Menu label="Preferences" />
+        <div className="hidden md:block">
+          <Menu label="Preferences" />
+        </div>
       </div>
       <div className="flex gap-5 justify-self-end items-center">
         <button onClick={onTogglePreview}>Preview</button>

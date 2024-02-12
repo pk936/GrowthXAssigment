@@ -86,7 +86,7 @@ function AddCard({ onAddCard }) {
     <button
       onClick={onAddCard}
       className={
-        "flex justify-center bg-[#EEEEEE] text-sm font-bold" + commonClasses
+        "flex justify-center bg-[#EEEEEE] text-sm font-bold " + commonClasses
       }
     >
       <label>+ Add Next</label>
