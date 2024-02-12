@@ -1,8 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import MenuCard from "./MenuCard";
+import useClickOutside from "../hooks/useClickOutside";
 
 export default function AddSectionButton() {
   const [showMenu, setShowMenu] = useState(false);
+  const menuRef = useRef(null);
+  useClickOutside({ eleRef: menuRef, action: () => setShowMenu(false) });
 
   function toggleMenu() {
     setShowMenu(!showMenu);
@@ -16,7 +19,11 @@ export default function AddSectionButton() {
       >
         + <span className="text-black font-semibold text-sm">Add sections</span>
       </button>
-      {showMenu && <MenuCard />}
+      {showMenu && (
+        <div ref={menuRef}>
+          <MenuCard />
+        </div>
+      )}
     </div>
   );
 }

@@ -8,10 +8,9 @@ import AboutMeSection from "./components/AboutMeSection";
 import Context, { AppContext } from "./AppContext";
 import { useContext } from "react";
 import SkillSection from "./components/SkillSection";
-import Avatar from "./components/Avatar";
 import ProjectSection from "./components/ProjectSection";
 import ExperienceSection from "./components/ExperienceSection";
-import Editor from "./components/lexicalEditor/Editor";
+import ConectSection from "./components/ConnectSection";
 
 export default function App() {
   return (
@@ -24,7 +23,40 @@ export default function App() {
 function Layout() {
   const { sectionsList } = useContext(AppContext);
   console.log("sectionsList", sectionsList);
-  const { aboutYou, skillSet, projects, exp, cta } = sectionsList.data;
+  const sections = [];
+
+  for (const key in sectionsList.data) {
+    if (Object.hasOwnProperty.call(sectionsList.data, key)) {
+      const sectionData = sectionsList.data[key];
+
+      if (sectionData) {
+        sections.push(getSectionElement(key, sectionData));
+      }
+    }
+  }
+
+  function getSectionElement(key, sectionData) {
+    switch (key) {
+      case "aboutYou":
+        return (
+          <AboutMeSection key="aboutYou" id="aboutYou" data={sectionData} />
+        );
+
+      case "skillSet":
+        return <SkillSection key="skillSet" id="skillSet" data={sectionData} />;
+
+      case "projects":
+        return (
+          <ProjectSection key="projects" id="projects" data={sectionData} />
+        );
+
+      case "exp":
+        return <ExperienceSection key="exp" id="exp" data={sectionData} />;
+
+      case "cta":
+        return <ConectSection key="cta" id="cta" data={sectionData} />;
+    }
+  }
 
   return (
     <>
@@ -32,13 +64,13 @@ function Layout() {
       <main className="flex min-h-screen flex-col md:gap-32 gap-16 justify-between md:p-24 p-4">
         <Title />
         <IntroSection>
-          {aboutYou && <AboutMeSection id="aboutYou" data={aboutYou} />}
-          {skillSet && <SkillSection id="skillSet" data={skillSet} />}
-          {projects && <ProjectSection id="projects" data={projects} />}
-          {exp && <ExperienceSection id="exp" data={exp} />}
-          {cta && <ProjectSection id="cta" data={cta} />}
-
+          {sections}
           {!sectionsList.isAnySectionEditing && <AddSectionButton />}
+          {sectionsList.length === 5 && (
+            <label className="text-sm font-semibold">
+              All sections added! Looks good.
+            </label>
+          )}
         </IntroSection>
       </main>
     </>

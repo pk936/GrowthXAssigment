@@ -1,10 +1,14 @@
 import { AppContext } from "../AppContext";
+import CustomLink from "./CustomLink";
+import DefaultImage from "./DefaultImage";
 import Editor from "./lexicalEditor/Editor";
 import { SectionSubText, SectionTitle } from "./SectionHeadings";
 import SectionWrapper from "./SectionWrapper";
 import { useContext, useState } from "react";
 
-export default function AboutMeSection({ id, data }) {
+export default function ConnectSection({ id, data }) {
+  console.log("data", data);
+
   //   const [formData, setFormData] = useState(data);
   const { isEditing } = data;
 
@@ -15,15 +19,14 @@ export default function AboutMeSection({ id, data }) {
     // });
   }
 
-
   return (
     <SectionWrapper id={id} data={data}>
-      <SectionTitle>About Me</SectionTitle>
-      <Editor
-        isEditing={isEditing}
-        onChange={onChange}
-        placeholder="Start writing..."
-      />
+      <SectionTitle>Let's Connect</SectionTitle>
+      <SectionSubText placeholder="Enter subtext here" />
+      <div className="flex items-center gap-2">
+        <DefaultImage />
+        <CustomLink placeholder="Add link" />
+      </div>
     </SectionWrapper>
   );
 }

@@ -2,6 +2,8 @@ import { useState } from "react";
 import DefaultImage from "./DefaultImage";
 import { SectionTitle, SectionSubText } from "./SectionHeadings";
 import SectionWrapper from "./SectionWrapper";
+import AutoResizeTextarea from "./AutoResizeTextArea";
+import CustomLink from "./CustomLink";
 
 const emptyProject = [
   {
@@ -25,7 +27,7 @@ export default function ProjectSection({ id, data }) {
   return (
     <SectionWrapper id={id} data={data}>
       <SectionTitle>Projects</SectionTitle>
-      <SectionSubText placeholder="Click to add subtitle" />
+      <SectionSubText placeholder="Click to add subtext" />
       <div className="flex flex-wrap  gap-10">
         {list}
         <AddCard onAddCard={onAddCard} />
@@ -43,8 +45,8 @@ function ProjectCard({ title, link, desc }) {
         placeholder="Enter project title"
         className="text-sm text-black font-medium"
       />
-      <ProjectLink />
-      <textarea
+      <CustomLink placeholder="Enter project link" />
+      <AutoResizeTextarea
         className="text-xs font-medium"
         rows={5}
         placeholder="Enter description"
@@ -67,28 +69,6 @@ function AddCard({ onAddCard }) {
     >
       <label>+</label>
       <label>Add New Card</label>
-    </button>
-  );
-}
-
-function ProjectLink() {
-  const [addLink, setAddLink] = useState();
-
-  if (addLink)
-    return (
-      <input
-        type="text"
-        placeholder="Enter project link"
-        className="text-sm text-[#999999] font-medium"
-      />
-    );
-
-  return (
-    <button
-      onClick={() => setAddLink(true)}
-      className="self-start text-sm text-[#0085FF] font-medium "
-    >
-      Add link
     </button>
   );
 }

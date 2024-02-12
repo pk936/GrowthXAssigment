@@ -29,6 +29,11 @@ textarea {
   /* .text-balance {
     text-wrap: balance;
   } */
+
+  .editor-container ul,
+  .editor-container ol {
+    list-style: revert-layer;
+  }
 }
 
 .other h2 {
@@ -368,7 +373,7 @@ pre::-webkit-scrollbar-thumb {
 .toolbar {
   display: flex;
   margin-bottom: 1px;
-  background: #fff;
+  background: #eee;
   padding: 4px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;

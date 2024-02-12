@@ -539,7 +539,7 @@ export default function ToolbarPlugin() {
 
   return (
     <div className="toolbar" ref={toolbarRef}>
-      <button
+      {/* <button
         disabled={!canUndo}
         onClick={() => {
           editor.dispatchCommand(UNDO_COMMAND);
@@ -558,7 +558,7 @@ export default function ToolbarPlugin() {
         aria-label="Redo"
       >
         <i className="format redo" />
-      </button>
+      </button> */}
       <Divider />
       {supportedBlockTypes.has(blockType) && (
         <>
@@ -625,7 +625,7 @@ export default function ToolbarPlugin() {
           >
             <i className="format underline" />
           </button>
-          <button
+          {/* <button
             onClick={() => {
               editor.dispatchCommand(FORMAT_TEXT_COMMAND, "strikethrough");
             }}
@@ -635,16 +635,7 @@ export default function ToolbarPlugin() {
             aria-label="Format Strikethrough"
           >
             <i className="format strikethrough" />
-          </button>
-          <button
-            onClick={() => {
-              editor.dispatchCommand(FORMAT_TEXT_COMMAND, "code");
-            }}
-            className={"toolbar-item spaced " + (isCode ? "active" : "")}
-            aria-label="Insert Code"
-          >
-            <i className="format code" />
-          </button>
+          </button> */}
           <button
             onClick={insertLink}
             className={"toolbar-item spaced " + (isLink ? "active" : "")}

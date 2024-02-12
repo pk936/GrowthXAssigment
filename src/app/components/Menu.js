@@ -1,14 +1,21 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AppContext } from "../AppContext";
 import SubmitButton from "./SubmitButton";
 import MenuCard from "./MenuCard";
 import { sectionsList } from "../constants";
+import useClickOutside from "../hooks/useClickOutside";
 
 export default function Menu({ label }) {
   const [showMenu, setShowMenu] = useState(false);
   const { sectionsList: addedSection, onAddSection } = useContext(AppContext);
+  const menuRef = useRef(null);
+
+  useClickOutside({ eleRef: menuRef, action: () => setShowMenu(false) });
+
   const menuItems = sectionsList
-    .filter((s) => addedSection.data[s.id])
+    .filter(
+      (s) => addedSection.data[s.id] && !addedSection.data[s.id].isEditing
+    )
     .map(({ label, id }) => {
       return (
         <li
@@ -28,18 +35,19 @@ export default function Menu({ label }) {
 
   return (
     <div className="relative">
-      <button onClick={toggleMenu} className="cursor-pointer">
-        <label>
-          {label}
-          {showMenu ? (
-            <span className="text-xs">&#9650;</span>
-          ) : (
-            <span className="text-xs">&#9660;</span>
-          )}
-        </label>
+      <button onClick={toggleMenu} className="cursor-pointer flex gap-2">
+        {label}
+        {showMenu ? (
+          <span className="text-[10px]">&#9650;</span>
+        ) : (
+          <span className="text-[10px]">&#9660;</span>
+        )}
       </button>
       {showMenu && (
-        <div className="flex flex-col  justify-center font-semibold bg-white py-5 px-2 absolute top-12 w-60 rounded-xl text-black">
+        <div
+          ref={menuRef}
+          className="flex flex-col  justify-center font-semibold bg-white py-5 px-2 absolute top-12 w-60 rounded-xl text-black"
+        >
           {menuItems.length > 0 ? (
             <ul className="">{menuItems}</ul>
           ) : (

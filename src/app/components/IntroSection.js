@@ -1,3 +1,4 @@
+import AutoResizeTextarea from "./AutoResizeTextArea";
 import Avatar from "./Avatar";
 import { SectionSubText } from "./SectionHeadings";
 
@@ -24,9 +25,7 @@ export default function Highlights({ children }) {
     <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
       <Avatar />
       <div className="md:col-span-2 overflow-hidden flex flex-col justify-center">
-        <textarea
-          rows={2}
-          type="text"
+        <AutoResizeTextarea
           className="border-none bg-transparent md:text-7xl text-4xl"
           placeholder="Click to add title"
           // onBlur={(e) => onBlur("title", e)}

@@ -2,6 +2,8 @@ import { useState } from "react";
 import DefaultImage from "./DefaultImage";
 import { SectionTitle, SectionSubText } from "./SectionHeadings";
 import SectionWrapper from "./SectionWrapper";
+import AutoResizeTextarea from "./AutoResizeTextArea";
+import Editor from "./lexicalEditor/Editor";
 
 const emptyExperience = [
   {
@@ -19,7 +21,7 @@ export default function ExperienceSection({ id, data }) {
   }
 
   const list = expList.map((p, i) => {
-    return <ExpCard key={i} data={p} />;
+    return <ExpCard key={i} data={p} isEditing={data.isEditing} />;
   });
 
   return (
@@ -29,13 +31,13 @@ export default function ExperienceSection({ id, data }) {
 
       <div className="flex flex-col gap-10">
         {list}
-        <AddCard onAddCard={onAddCard} />
+        {data.isEditing && <AddCard onAddCard={onAddCard} />}
       </div>
     </SectionWrapper>
   );
 }
 
-function ExpCard({ title, link, desc }) {
+function ExpCard({ isEditing }) {
   return (
     <div className="shadow-lg flex flex-col gap-5 bg-white border-[1px] border-solid border-[#DADADA] p-4 rounded-3xl">
       <div className="flex items-center gap-5 ">
@@ -56,7 +58,7 @@ function ExpCard({ title, link, desc }) {
         </div>
       </div>
 
-      <div className="flex gap-10">
+      <div className="flex md:gap-10 flex-col">
         <input
           type="text"
           placeholder="+ Add location"
@@ -70,8 +72,8 @@ function ExpCard({ title, link, desc }) {
       </div>
 
       <div>
-        <textarea
-          rows={5}
+        <Editor
+          isEditing={isEditing}
           className="w-full"
           placeholder="Add description..."
         />

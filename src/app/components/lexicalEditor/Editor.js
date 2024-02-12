@@ -24,10 +24,6 @@ import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext
 import { useState, useEffect } from "react";
 import parse from "html-react-parser";
 
-function Placeholder() {
-  return <div className="editor-placeholder">Enter some rich text...</div>;
-}
-
 const editorConfig = {
   // The editor theme
   theme: ExampleTheme,
@@ -65,7 +61,7 @@ function MyOnChangePlugin({ onChange }) {
   return null;
 }
 
-export default function Editor({ isEditing }) {
+export default function Editor({ isEditing, placeholder }) {
   const [html, setHtml] = useState("");
 
   function onChange(html) {
@@ -75,15 +71,17 @@ export default function Editor({ isEditing }) {
   if (isEditing)
     return (
       <LexicalComposer initialConfig={editorConfig}>
-        <div className="editor-container">
+        <div className="editor-container overflow-hidden">
           <ToolbarPlugin />
           <div className="editor-inner">
             <RichTextPlugin
               contentEditable={<ContentEditable className="editor-input" />}
-              placeholder={<Placeholder />}
+              placeholder={
+                <div className="editor-placeholder">{placeholder}</div>
+              }
               ErrorBoundary={LexicalErrorBoundary}
             />
-            <HistoryPlugin />
+            {/* <HistoryPlugin /> */}
             <AutoFocusPlugin />
             <CodeHighlightPlugin />
             <ListPlugin />
