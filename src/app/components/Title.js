@@ -1,5 +1,3 @@
-import defaultImage from "@/app/images/default-portfolio-image.png";
-import Image from "next/image";
 import DefaultImage from "./DefaultImage";
 
 export default function Title(params) {
@@ -8,7 +6,7 @@ export default function Title(params) {
       <DefaultImage />
       <input
         type="text"
-        className="border-none bg-transparent px-2"
+        className="border-none bg-transparent px-2 font-semibold"
         placeholder="Enter site title"
       />
     </div>

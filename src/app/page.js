@@ -21,7 +21,7 @@ export default function App() {
 }
 
 function Layout() {
-  const { sectionsList } = useContext(AppContext);
+  const { sectionsList, isPreview } = useContext(AppContext);
   console.log("sectionsList", sectionsList);
   const sections = [];
 
@@ -36,6 +36,7 @@ function Layout() {
   }
 
   function getSectionElement(key, sectionData) {
+    console.log("key", key);
     switch (key) {
       case "aboutYou":
         return (

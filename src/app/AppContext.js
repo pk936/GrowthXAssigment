@@ -18,12 +18,18 @@ export default function Context({ children }) {
     isAnySectionEditing: false,
   });
 
+  const [isPreview, setIsPerview] = useState(false);
+
   //   function updateSection({ id, data }) {
   //     setData({
   //       ...data,
   //       [id]: data,
   //     });
   //   }
+
+  function onTogglePreview() {
+    setIsPerview(!isPreview);
+  }
 
   function onAddSection(id, data) {
     console.log("PROCESSING", id, data);
@@ -39,7 +45,8 @@ export default function Context({ children }) {
   const finalData = {
     sectionsList,
     onAddSection,
-    // updateSection,
+    onTogglePreview,
+    isPreview,
   };
 
   return (

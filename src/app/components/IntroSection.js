@@ -32,7 +32,7 @@ export default function Highlights({ children }) {
           // onBlur={(e) => onBlur("title", e)}
           // value={title}
         />
-        <SectionSubText placeholder="Click to add subtitle leading-7" />
+        <SectionSubText placeholder="Click to add subtitle" />
       </div>
 
       <div>

@@ -26,7 +26,7 @@ export default function MenuCard() {
   return (
     <div
       className="z-10 bg-white py-5 px-2  w-60 rounded-xl text-black
-      absolute top-40 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+      absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2
       shadow-xl"
     >
       <ul className="flex flex-col items-center justify-center">{menuItems}</ul>

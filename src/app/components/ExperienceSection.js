@@ -58,7 +58,7 @@ function ExpCard({ isEditing }) {
         </div>
       </div>
 
-      <div className="flex md:gap-10 flex-col">
+      <div className="flex md:gap-10 flex-col md:flex-row">
         <input
           type="text"
           placeholder="+ Add location"
