@@ -21,7 +21,7 @@ export default function ConnectSection({ id, data }) {
 
   return (
     <SectionWrapper id={id} data={data}>
-      <SectionTitle>Let's Connect</SectionTitle>
+      <SectionTitle>Let&apos;s Connect</SectionTitle>
       <SectionSubText placeholder="Enter subtext here" />
       <div className="flex items-center gap-2">
         <DefaultImage />
