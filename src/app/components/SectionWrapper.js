@@ -17,7 +17,7 @@ export default function SectionWrapper({ id, data, children }) {
   }
 
   const disable = isEditing
-    ? "pointer-events-auto border-[1px]"
+    ? "pointer-events-auto border-[1px] p-8"
     : "pointer-events-none border-none";
 
   return (
@@ -32,7 +32,7 @@ export default function SectionWrapper({ id, data, children }) {
       <div
         className={
           disable +
-          " container border-solid border-[#828282] rounded-lg mx-auto p-8"
+          " container border-solid border-[#828282] rounded-lg mx-auto"
         }
       >
         {children}

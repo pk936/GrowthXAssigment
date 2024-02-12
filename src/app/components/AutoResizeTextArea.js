@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 
 function AutoResizeTextarea(props) {
   const [content, setContent] = useState("");
@@ -14,7 +14,6 @@ function AutoResizeTextarea(props) {
   return (
     <textarea
       ref={textArea}
-      style={{ resize: "none" }}
       value={content}
       onChange={handleTextareaChange}
       {...props}

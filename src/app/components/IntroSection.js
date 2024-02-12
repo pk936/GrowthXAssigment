@@ -26,23 +26,24 @@ export default function Highlights({ children }) {
       <Avatar />
       <div className="md:col-span-2 overflow-hidden flex flex-col justify-center">
         <AutoResizeTextarea
-          className="border-none bg-transparent md:text-7xl text-4xl"
+          rows={1}
+          className="md:text-7xl text-4xl"
           placeholder="Click to add title"
           // onBlur={(e) => onBlur("title", e)}
           // value={title}
         />
-        <SectionSubText placeholder="Click to add subtitle" />
+        <SectionSubText placeholder="Click to add subtitle leading-7" />
       </div>
 
       <div>
         <input
           type="text"
-          className="border-none bg-transparent px-2 font-semibold w-full"
+          className="border-none bg-transparent font-semibold w-full"
           placeholder="Your name here"
         />
         <input
           type="text"
-          className="border-none bg-transparent px-2 text-sm"
+          className="border-none bg-transparent text-sm"
           placeholder="Enter email"
         />
       </div>

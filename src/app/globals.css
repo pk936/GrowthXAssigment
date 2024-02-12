@@ -18,6 +18,7 @@ div[contenteditable="true"] {
 input,
 textarea {
   background-color: transparent;
+  overflow: hidden;
 }
 
 /* div.pointer-events-none */

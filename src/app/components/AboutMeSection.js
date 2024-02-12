@@ -15,15 +15,10 @@ export default function AboutMeSection({ id, data }) {
     // });
   }
 
-
   return (
     <SectionWrapper id={id} data={data}>
       <SectionTitle>About Me</SectionTitle>
-      <Editor
-        isEditing={isEditing}
-        onChange={onChange}
-        placeholder="Start writing..."
-      />
+      <Editor isEditing={isEditing} placeholder="Start writing..." />
     </SectionWrapper>
   );
 }

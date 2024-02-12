@@ -8,7 +8,7 @@ export function SectionSubText({ placeholder }) {
   return (
     <AutoResizeTextarea
       // rows={3}
-      className="border-none bg-transparent w-full mb-10"
+      className="border-none bg-transparent w-full mb-5 md:mb-10"
       placeholder={placeholder}
     />
   );
