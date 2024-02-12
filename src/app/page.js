@@ -1,7 +1,7 @@
 "use client";
 
 import NavBar from "./components/NavBar";
-import Title from "./components/Title";
+import PortfolioTitle from "./components/PortfolioTitle";
 import IntroSection from "./components/IntroSection";
 import AddSectionButton from "./components/AddSectionButton";
 import AboutMeSection from "./components/AboutMeSection";
@@ -25,18 +25,14 @@ function Layout() {
   console.log("sectionsList", sectionsList);
   const sections = [];
 
-  for (const key in sectionsList.data) {
-    if (Object.hasOwnProperty.call(sectionsList.data, key)) {
-      const sectionData = sectionsList.data[key];
-
-      if (sectionData) {
-        sections.push(getSectionElement(key, sectionData));
-      }
+  Object.keys(sectionsList.data).map((sectionId) => {
+    const sectionData = sectionsList.data[sectionId];
+    if (sectionData) {
+      sections.push(getSectionElement(sectionId, sectionData));
     }
-  }
+  });
 
   function getSectionElement(key, sectionData) {
-    console.log("key", key);
     switch (key) {
       case "aboutYou":
         return (
@@ -59,16 +55,20 @@ function Layout() {
     }
   }
 
+  console.log("sectionsList", sections.length);
+
   return (
     <>
       <NavBar />
       <main className="flex min-h-screen flex-col md:gap-32 gap-16 justify-between md:p-24 p-4">
-        <Title />
+        <PortfolioTitle />
         <IntroSection>
           {sections}
-          {!sectionsList.isAnySectionEditing && <AddSectionButton />}
-          {sectionsList.length === 5 && (
-            <label className="text-sm font-semibold">
+          {!sectionsList.isAnySectionEditing && sections.length < 5 && (
+            <AddSectionButton />
+          )}
+          {sections.length === 5 && !isPreview && (
+            <label className="text-center text-sm font-semibold">
               All sections added! Looks good.
             </label>
           )}

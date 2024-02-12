@@ -1,14 +1,21 @@
 import { useContext, useRef, useState } from "react";
 import MenuCard from "./MenuCard";
 import useClickOutside from "../hooks/useClickOutside";
+import { AppContext } from "../AppContext";
 
 export default function AddSectionButton() {
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef(null);
+  const { isPreview } = useContext(AppContext);
+
   useClickOutside({ eleRef: menuRef, action: () => setShowMenu(false) });
 
   function toggleMenu() {
     setShowMenu(!showMenu);
+  }
+
+  if (isPreview) {
+    return null;
   }
 
   return (

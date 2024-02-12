@@ -1,12 +1,12 @@
 import { useState } from "react";
+import AutoResizeTextarea from "./AutoResizeTextArea";
 
 export default function CustomLink({ placeholder }) {
   const [addLink, setAddLink] = useState();
 
   if (addLink)
     return (
-      <input
-        type="text"
+      <AutoResizeTextarea
         placeholder={placeholder}
         className="text-sm text-[#999999] font-medium"
       />

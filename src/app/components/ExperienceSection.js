@@ -2,8 +2,8 @@ import { useState } from "react";
 import DefaultImage from "./DefaultImage";
 import { SectionTitle, SectionSubText } from "./SectionHeadings";
 import SectionWrapper from "./SectionWrapper";
-import AutoResizeTextarea from "./AutoResizeTextArea";
 import Editor from "./lexicalEditor/Editor";
+import AutoResizeTextarea from "./AutoResizeTextArea";
 
 const emptyExperience = [
   {
@@ -45,13 +45,11 @@ function ExpCard({ isEditing }) {
           <DefaultImage />
         </div>
         <div className="flex flex-col">
-          <input
-            type="text"
+          <AutoResizeTextarea
             placeholder="Enter company title"
             className=" text-black font-medium"
           />
-          <input
-            type="text"
+          <AutoResizeTextarea
             placeholder="Enter designation"
             className="text-sm text-gray-400 font-medium  "
           />
@@ -59,13 +57,11 @@ function ExpCard({ isEditing }) {
       </div>
 
       <div className="flex md:gap-10 flex-col md:flex-row">
-        <input
-          type="text"
+        <AutoResizeTextarea
           placeholder="+ Add location"
           className="text-sm  font-medium  "
         />
-        <input
-          type="text"
+        <AutoResizeTextarea
           placeholder="+ Add timeline"
           className="text-sm font-medium  "
         />
@@ -103,8 +99,7 @@ function ProjectLink() {
 
   if (addLink)
     return (
-      <input
-        type="text"
+      <AutoResizeTextarea
         placeholder="Enter project link"
         className="text-sm font-medium"
       />

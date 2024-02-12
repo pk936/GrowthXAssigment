@@ -1,6 +1,8 @@
-import {  useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
+import { AppContext } from "../AppContext";
 
 function AutoResizeTextarea(props) {
+  const { isPreview } = useContext(AppContext);
   const [content, setContent] = useState("");
   const textArea = useRef();
 
@@ -11,8 +13,11 @@ function AutoResizeTextarea(props) {
     setContent(event.target.value); // Update content state
   };
 
+  if (isPreview) return <div className={props.className}>{content}</div>;
+
   return (
     <textarea
+      rows={1}
       ref={textArea}
       value={content}
       onChange={handleTextareaChange}

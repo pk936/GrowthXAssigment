@@ -18,7 +18,7 @@ export default function SkillSets({ id, data }) {
 
 function LeftSection({ isEditing, title }) {
   return (
-    <div className="mr-4 md:w-1/2 md:h-[535px] w-full flex flex-col border-[1px] border-solid border-[#DADADA] bg-white p-4 rounded-3xl">
+    <div className="mr-4 md:w-1/2  w-full flex flex-col border-[1px] border-solid border-[#DADADA] bg-white p-4 rounded-3xl">
       {title ? (
         <h3 className="font-bold text-xl mb-4">{title}</h3>
       ) : (
@@ -46,7 +46,7 @@ function RightSection({ children, isEditing }) {
   }
 
   const commonClasses =
-    "ml-4 border-[1px] border-solid border-[#DADADA] p-4 rounded-3xl md:w-1/2 md:h-[535px] w-full";
+    "ml-4 border-[1px] border-solid border-[#DADADA] p-4 rounded-3xl md:w-1/2  w-full";
 
   const placeholder = (
     <button

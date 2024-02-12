@@ -4,6 +4,7 @@ const exampleTheme = {
   placeholder: "editor-placeholder",
   paragraph: "editor-paragraph",
   quote: "editor-quote",
+  hashtag: "editor-hashtag",
   heading: {
     h1: "editor-heading-h1",
     h2: "editor-heading-h2",

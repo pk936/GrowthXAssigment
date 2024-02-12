@@ -23,6 +23,8 @@ import AutoLinkPlugin from "./plugins/AutoLinkPlugin";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { useState, useEffect } from "react";
 import parse from "html-react-parser";
+import { HashtagPlugin } from "@lexical/react/LexicalHashtagPlugin";
+import { HashtagNode } from "@lexical/hashtag";
 
 const editorConfig = {
   // The editor theme
@@ -44,6 +46,7 @@ const editorConfig = {
     TableRowNode,
     AutoLinkNode,
     LinkNode,
+    HashtagNode,
   ],
 };
 
@@ -81,7 +84,7 @@ export default function Editor({ isEditing, placeholder }) {
               }
               ErrorBoundary={LexicalErrorBoundary}
             />
-            {/* <HistoryPlugin /> */}
+            <HistoryPlugin />
             <AutoFocusPlugin />
             <CodeHighlightPlugin />
             <ListPlugin />
@@ -90,6 +93,8 @@ export default function Editor({ isEditing, placeholder }) {
             <ListMaxIndentLevelPlugin maxDepth={7} />
             <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
             <MyOnChangePlugin onChange={onChange} />
+
+            <HashtagPlugin />
           </div>
         </div>
       </LexicalComposer>

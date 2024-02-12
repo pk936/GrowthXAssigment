@@ -239,12 +239,17 @@ h1 {
   margin: 0;
   margin-bottom: 8px;
   position: relative;
+  line-height: 28px;
+  font-size: 14px;
 }
 
 .editor-paragraph:last-child {
   margin-bottom: 0;
 }
 
+.editor-hashtag {
+  color: #0094ff;
+}
 .editor-heading-h1 {
   font-size: 24px;
   color: rgb(5, 5, 5);

@@ -46,8 +46,7 @@ function ProjectCard() {
   return (
     <div className="flex flex-col justify-between items-start h-56 md:w-[45%] w-full border-[1px] border-solid border-[#DADADA] bg-white p-4 rounded-3xl">
       <DefaultImage />
-      <input
-        type="text"
+      <AutoResizeTextarea
         placeholder="Enter project title"
         className="text-sm text-black font-medium w-full"
       />

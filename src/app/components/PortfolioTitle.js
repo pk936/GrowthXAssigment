@@ -1,11 +1,11 @@
+import AutoResizeTextarea from "./AutoResizeTextArea";
 import DefaultImage from "./DefaultImage";
 
-export default function Title(params) {
+export default function PortfolioTitle(params) {
   return (
-    <div className="flex">
+    <div className="flex items-center">
       <DefaultImage />
-      <input
-        type="text"
+      <AutoResizeTextarea
         className="border-none bg-transparent px-2 font-semibold"
         placeholder="Enter site title"
       />
